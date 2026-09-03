@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Maison Riviera | Luxury Residences Dubai</title>
   
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   
   <style>
@@ -16,6 +18,7 @@
 </head>
 <body class="bg-[#0A0B0D] text-[#ECE7E1] selection:bg-[#C5A059] selection:text-black min-h-screen">
 
+  <!-- Navigation -->
   <nav class="fixed top-0 left-0 w-full z-40 bg-[#0A0B0D]/90 backdrop-blur-md border-b border-[#C5A059]/20 py-4">
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
       <a href="#" class="text-2xl font-serif tracking-widest text-[#ECE7E1] uppercase">
@@ -37,6 +40,7 @@
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <section class="relative h-screen flex items-center justify-center text-center px-6 pt-16">
     <div class="absolute inset-0 z-0">
       <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=80" alt="Hero" class="w-full h-full object-cover brightness-40" />
@@ -52,6 +56,7 @@
     </div>
   </section>
 
+  <!-- Properties Grid -->
   <section id="properties" class="py-24 bg-[#0F1115] px-6">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
@@ -59,10 +64,12 @@
         <h2 class="text-3xl md:text-5xl font-serif mt-2">Available Residences</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="propertyContainer">
-        </div>
+        <!-- Injected via JavaScript -->
+      </div>
     </div>
   </section>
 
+  <!-- FAQ Accordion -->
   <section id="faq" class="py-24 bg-[#0A0B0D] px-6">
     <div class="max-w-3xl mx-auto">
       <div class="text-center mb-16">
@@ -92,6 +99,7 @@
     </div>
   </section>
 
+  <!-- Lead Form Modal -->
   <div id="leadModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-6">
     <div class="bg-[#121418] border border-[#C5A059]/40 max-w-lg w-full p-8 relative">
       <button onclick="closeModal('leadModal')" class="absolute top-4 right-4 text-[#ECE7E1]/60 hover:text-white">
@@ -101,6 +109,7 @@
       <p class="text-xs text-[#ECE7E1]/60 mb-6">Enter your details below to receive official brochures and floor plans.</p>
       
       <form onsubmit="handleLeadSubmit(event)" class="space-y-4">
+        <!-- Anti-Bot Trap -->
         <input type="text" id="botTrap" class="hidden" tabindex="-1" />
         
         <input type="text" required placeholder="Full Name *" class="w-full bg-[#0A0B0D] border border-[#ECE7E1]/10 px-4 py-3 text-xs outline-none focus:border-[#C5A059] text-white" />
@@ -114,6 +123,7 @@
     </div>
   </div>
 
+  <!-- Admin Modal -->
   <div id="adminModal" class="hidden fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-6">
     <div class="bg-[#121418] border border-[#C5A059] max-w-2xl w-full p-8 relative">
       <button onclick="closeModal('adminModal')" class="absolute top-4 right-4 text-[#ECE7E1]/60 hover:text-white">
@@ -147,7 +157,6 @@
   </div>
 
   <script>
-    // Site Data
     let propertiesData = [
       { id: 1, type: "Studio", size: "480 - 620 SQ.FT", price: "AED 1,200,000", img: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80" },
       { id: 2, type: "1 Bedroom", size: "780 - 950 SQ.FT", price: "AED 1,900,000", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80" },
@@ -181,7 +190,7 @@
           </div>
         `;
       });
-      lucide.createIcons();
+      if (window.lucide) { lucide.createIcons(); }
     }
 
     function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
